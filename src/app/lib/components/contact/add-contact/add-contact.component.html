@@ -1,0 +1,9 @@
+<form [formGroup]="addForm" (ngSubmit)="add(addForm.value)">
+        <label for="firstName">Nome</label>
+        <input type="text" class="form-control" formControlName="firstName" minlength="2" maxlength="10" size="10"
+            required>
+        <label for="lastName">Ultimo Nome</label>
+        <input type="text" class="form-control" formControlName="lastName" minlength="2" maxlength="10" size="10"
+            required>
+    <button type="submit" class="btn btn-primary">Novo</button>
+</form>
