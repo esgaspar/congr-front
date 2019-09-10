@@ -1,0 +1,12 @@
+<div class="fluid-container">
+
+  <header>
+    <app-menu-header (responseMenu)="menuMethodParent($event)"></app-menu-header>
+  </header>
+  <br />
+  <div class="row justify-content-between overflow-hidden" *ngIf="menuValue === 'contact'">
+    <div class="col-md-2 "></div>
+    <app-add-contact class="col-md-auto"></app-add-contact>
+    <app-list-contact class="col-md-2"> </app-list-contact>
+  </div>
+</div>
