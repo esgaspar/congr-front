@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
+import { OverlayContainer } from '@angular/cdk/overlay';
+
 
 
 @Component({
@@ -8,10 +10,29 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'congr-front';
+  @HostBinding('class') componentCssClass;
+  contactEdit: any;
+  menuValue: any;
 
-  menuValue: String;
+  constructor(public overlayContainer: OverlayContainer) {
+    this.onSetTheme('light-theme');
+    // dark-theme
+    // light-theme
+    // default-theme
+  }
+
+  contactUpdate($event) {
+    this.contactEdit = $event;
+  }
 
   menuMethodParent($event) {
     this.menuValue = $event;
   }
+
+
+  onSetTheme(theme) {
+    this.overlayContainer.getContainerElement().classList.add(theme);
+    this.componentCssClass = theme;
+  }
+
 }
