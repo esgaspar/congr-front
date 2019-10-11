@@ -1,0 +1,54 @@
+.h2 {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Roboto,
+    "Segoe UI", Helvetica, Arial, "Noto Sans", "Arial Unicode",
+    "Arial Unicode MS", sans-serif;
+  color: #64605d;
+  font-weight: 300;
+
+  margin-bottom: 0.5em;
+  font-size: 2em;
+  font-weight: 300;
+  line-height: 1.2em;
+}
+
+.meeting {
+  margin-bottom: 1em;
+}
+
+.treasures {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Roboto,
+    "Segoe UI", Helvetica, Arial, "Noto Sans", "Arial Unicode",
+    "Arial Unicode MS", sans-serif;
+  font-weight: 50;
+}
+
+.weekReading {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Roboto,
+    "Segoe UI", Helvetica, Arial, "Noto Sans", "Arial Unicode",
+    "Arial Unicode MS", sans-serif;
+  color: #64605d;
+  font-weight: 300;
+
+  margin-bottom: 0.5em;
+  font-size: 2em;
+  font-weight: 300;
+  line-height: 1.2em;
+}
+
+.shadedHeader {
+  display: block;
+  padding: 0.25em 1em;
+  color: #fff;
+  background-color: #5a6a70;
+}
+
+::ng-deep .mat-horizontal-stepper-header-container {
+  display: none !important;
+}
+
+#todayNav {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}

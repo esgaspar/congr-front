@@ -20,14 +20,15 @@
                 <td class="text-center">
 
                     <button mat-icon-button color="primary" aria-label="Deletar contatato"
+                    class="btn btn-outline-dark" mat-flat-button mat-icon-button mat-fab
                         (click)='delete(contact._id, i)'>
-                        <mat-icon>delete_forever</mat-icon>
+                        <mat-icon mat-icon inline=true>delete_forever</mat-icon>
                     </button>
 
                 </td>
                 <td class="text-center mt-5">
-                    <button mat-icon-button (click)='contactEdit(contact, i)'>
-                        <i class="material-icons">edit</i>
+                    <button mat-icon-button class="btn btn-outline-dark" mat-flat-button mat-icon-button mat-fab (click)='contactEdit(contact, i)'>
+                        <mat-icon mat-icon inline=true>edit</mat-icon>
                     </button>
                 </td>
             </tr>
