@@ -15,7 +15,10 @@
   margin-bottom: 1em;
 }
 
-.treasures {
+.treasures,
+.gems,
+.bibleReading,
+.p {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Roboto,
     "Segoe UI", Helvetica, Arial, "Noto Sans", "Arial Unicode",
     "Arial Unicode MS", sans-serif;
@@ -35,11 +38,22 @@
   line-height: 1.2em;
 }
 
-.shadedHeader {
+.treasuresTitle,
+.ministryTitle,
+.christiansTitle {
   display: block;
   padding: 0.25em 1em;
   color: #fff;
+}
+
+.treasuresTitle {
   background-color: #5a6a70;
+}
+.ministryTitle {
+  background-color: #c18626;
+}
+.christiansTitle {
+  background-color: #961526;
 }
 
 ::ng-deep .mat-horizontal-stepper-header-container {

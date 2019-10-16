@@ -24,7 +24,7 @@ export class MeetingService {
 
   public list() {
     this.meetingList = this.httpClient.get(
-      this.URLbase + `designations/?key=${this.API_KEY}`
+      this.URLbase + `meeting/?key=${this.API_KEY}`
     );
     return this.meetingList;
   }
