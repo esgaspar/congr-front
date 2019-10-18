@@ -1,7 +1,7 @@
 <mat-horizontal-stepper #stepper *ngIf="service.meetingList.length > 0">
   <div *ngFor='let meeting of service.meetingList; let i = index'>
     <mat-step>
-      <div id="todayNav">
+      <div id="todayNav" class = "noprint">
         <button class="btn btn-outline-primary" mat-flat-button mat-icon-button matStepperPrevious mat-fab
           aria-label="anterior">
           <mat-icon inline=true>navigate_before</mat-icon>
@@ -13,8 +13,6 @@
       </div>
 
       <div *ngFor='let designation of meeting.designations; let i = index'>
-        <div [ngClass]="designation.type" *ngIf="designation.type == 'weekReading'">
-          <strong>{{designation.date | date:'dd/MM/yyyy' }}</strong></div>
         <div [ngClass]="designation.type">{{designation.title}}</div>
       </div>
     </mat-step>

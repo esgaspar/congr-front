@@ -25,7 +25,7 @@
     "Arial Unicode MS", sans-serif;
   font-weight: 50;
 }
-
+.week,
 .weekReading {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Roboto,
     "Segoe UI", Helvetica, Arial, "Noto Sans", "Arial Unicode",
@@ -66,4 +66,10 @@
   width: 100%;
   margin: 0 auto;
   margin-bottom: 1rem;
+}
+
+@media print {
+  .noprint {
+     visibility: hidden;
+  }
 }

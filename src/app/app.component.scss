@@ -3,3 +3,11 @@ header {
   color: white;
   margin-top: 3rem;
 }
+
+
+@media print {
+  body {
+    background-color: white;
+    color: white;
+  }
+}
