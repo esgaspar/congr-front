@@ -24,6 +24,7 @@ import { MeetingComponent } from './lib/components/meeting/meeting.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {  MatStepperModule, MatIconModule } from '@angular/material';
+import { InputIconComponent } from './lib/components/class/input-icon/input-icon.component';
 
 
 
@@ -44,7 +45,8 @@ import {  MatStepperModule, MatIconModule } from '@angular/material';
 
     MenuHeaderComponent,
     ContactComponent,
-    MeetingComponent
+    MeetingComponent,
+    InputIconComponent
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@ export class AddContactComponent implements OnInit, OnDestroy {
   contact = this.contactClear();
   public subscribes = { add: null, edit: null, contact: null };
 
-  constructor(private service: ContactService, private formBuilder: FormBuilder,
+  constructor(public service: ContactService, private formBuilder: FormBuilder,
   ) {
     this.contact = this.contactClear();
     this.createForm();
@@ -38,18 +38,16 @@ export class AddContactComponent implements OnInit, OnDestroy {
     this.subscribes.contact = this.service.contact.subscribe(data => {
       if (data && data._id) {
         this.contact = data;
-        this.addForm = this.formBuilder.group({
+        this.addForm = {
           lastName: data.lastName,
-          firstName: data.firstName,
-        });
+          firstName: data.firstName};
       } else {
-        this.addForm = this.formBuilder.group({
+        this.addForm ={
           lastName: '',
           firstName: '',
-        });
       }
-    });
-  }
+    }});
+  };
 
  async add(contact) {
     this.contact.firstName = contact.firstName;
