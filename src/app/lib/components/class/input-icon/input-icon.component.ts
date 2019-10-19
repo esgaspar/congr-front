@@ -13,6 +13,7 @@ export class InputIconComponent implements OnInit {
   @Input() type: string;
   @Input() icon: string;
   @Input() id: string;
+  @Input() placeholder: string;
   
   @Output() inputModelChange = new EventEmitter<string>();  
   
