@@ -1,15 +1,9 @@
-<form [formGroup]="addForm" (ngSubmit)="add(addForm.value);service.updateContact(contactClear())">
-    <div class="form-inline  col-md-2">
-        <label for="firstName">Nome </label>
-        <input type="text" class="form-control" formControlName="firstName" minlength="2" maxlength="10" size="10"
-            required>
-    </div>
-    <div class="form-inline col-md-2">
-        <label for="lastName">Ultimo Nome</label>
-        <input type="text" class="form-control" formControlName="lastName" minlength="2" maxlength="10" size="10"
-            required>
+<form>
+    <div class="col-md-10">
+  <congr-input-icon id="firstName" [(inputModel)]="addForm.firstName" type="text" icon="assignment_ind"></congr-input-icon>
+  <congr-input-icon id="lastName" [(inputModel)]="addForm.lastName" type="text" icon="assignment_ind"></congr-input-icon>
     </div>
     <p>
-        <button type="submit" class="btn btn-primary mt-5">{{contact._id ? 'Salvar':'Novo'}}</button>
+        <button (click)="add(addForm);service.updateContact(contactClear())" class="btn btn-primary mt-5">{{contact._id ? 'Salvar':'Novo'}}</button>
     </p>
 </form>
