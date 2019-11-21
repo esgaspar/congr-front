@@ -13,7 +13,7 @@ export class AddMeetingComponent implements OnInit, OnDestroy {
   meeting = this.meetingClear();
   public subscribes = { add: null, edit: null, meeting: null };
 
-  constructor(private service: MeetingService, private formBuilder: FormBuilder,
+  constructor(public service: MeetingService, public formBuilder: FormBuilder,
   ) {
     this.meeting = this.meetingClear();
     this.createForm();

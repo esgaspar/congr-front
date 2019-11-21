@@ -16,7 +16,7 @@ exports.config = {
     'browserName': 'chrome'
   },
   directConnect: true,
-  baseUrl: 'http://localhost:4200/',
+  baseUrl: process.env.PORT ? "http://fathomless-caverns-13885.herokuapp.com/":,
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,

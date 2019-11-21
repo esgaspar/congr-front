@@ -9,13 +9,13 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export class MeetingService {
   private API_KEY = 'e56d3ca5d6ab8eb246a64d966fb72b5cde48b740';
 
-  private URLbase = 'http://localhost:3000/';
+  private URLbase = process.env.PORT ? "http://fathomless-caverns-13885.herokuapp.com/" : 'http://localhost:3000/';
   public meetingList;
 
   private meetingBehavior = new BehaviorSubject<any>(new Object());
   meeting = this.meetingBehavior.asObservable();
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   async updateMeeting(meeting: any) {
     console.log('meeting service - meeting: ' + meeting);
