@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrl: 'http://fathomless-caverns-13885.herokuapp.com/'  
 };

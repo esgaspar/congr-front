@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { environment } from './../../../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export class MeetingService {
   private API_KEY = 'e56d3ca5d6ab8eb246a64d966fb72b5cde48b740';
 
-  private URLbase = process.env.PORT ? "http://fathomless-caverns-13885.herokuapp.com/" : 'http://localhost:3000/';
+  private URLbase = environment.baseUrl;
   public meetingList;
 
   private meetingBehavior = new BehaviorSubject<any>(new Object());

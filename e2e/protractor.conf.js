@@ -4,6 +4,7 @@
 
 const { SpecReporter } = require('jasmine-spec-reporter');
 
+
 /**
  * @type { import("protractor").Config }
  */
@@ -16,7 +17,7 @@ exports.config = {
     'browserName': 'chrome'
   },
   directConnect: true,
-  baseUrl: process.env.PORT ? "http://fathomless-caverns-13885.herokuapp.com/":,
+  baseUrl: "http://fathomless-caverns-13885.herokuapp.com/",
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
