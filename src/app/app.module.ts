@@ -23,8 +23,12 @@ import { MeetingComponent } from './lib/components/meeting/meeting.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {  MatStepperModule, MatIconModule } from '@angular/material';
+import { MatStepperModule, MatIconModule } from '@angular/material';
 import { InputIconComponent } from './lib/components/class/input-icon/input-icon.component';
+import { LoginComponent } from './lib/components/login/login.component';
+import { RegisterComponent } from './lib/components/register/register.component';
+import { AlertComponent } from './lib/components/class/alert/alert.component';
+import { DashboardComponent } from './lib/components/dashboard.component';
 
 
 
@@ -46,7 +50,11 @@ import { InputIconComponent } from './lib/components/class/input-icon/input-icon
     MenuHeaderComponent,
     ContactComponent,
     MeetingComponent,
-    InputIconComponent
+    InputIconComponent,
+    LoginComponent,
+    RegisterComponent,
+    DashboardComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

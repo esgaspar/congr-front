@@ -1,4 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { AuthenticationService } from '../../services/authentication.service';
+import { Router } from '@angular/router';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'app-menu-header',
@@ -8,12 +11,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class MenuHeaderComponent implements OnInit {
   navbarOpen = false;
 
-  constructor() { }
+  constructor(private router: Router,
+    private contactService: ContactService) { }
 
   @Output() responseMenu = new EventEmitter();
 
   menu(value) {
     this.responseMenu.emit(value);
+
   }
 
   toggleNavbar() {
@@ -21,5 +26,11 @@ export class MenuHeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+
+  logout() {
+    this.contactService.logout();
+    this.router.navigate(['/login']);
   }
 }
