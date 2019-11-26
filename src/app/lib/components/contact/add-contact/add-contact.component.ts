@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { ContactService } from '../contact.service';
+import { ContactService } from '../../../services/contact.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -30,7 +30,7 @@ export class AddContactComponent implements OnInit, OnDestroy {
   }
 
   public contactClear() {
-    return { _id: null, firstName: '', lastName: '', sexGender: '' };
+    return { _id: null, firstName: '', lastName: '', sexGender: '', username: '', password: '' };
   }
 
   createForm() {
@@ -40,11 +40,16 @@ export class AddContactComponent implements OnInit, OnDestroy {
         this.contact = data;
         this.addForm = {
           lastName: data.lastName,
-          firstName: data.firstName};
+          firstName: data.firstName,
+          username: data.username,
+          password: data.password
+        };
       } else {
         this.addForm ={
           lastName: '',
           firstName: '',
+          username: '',
+          password: '',
       }
     }});
   };
@@ -52,6 +57,8 @@ export class AddContactComponent implements OnInit, OnDestroy {
  async add(contact) {
     this.contact.firstName = contact.firstName;
     this.contact.lastName = contact.lastName;
+    this.contact.username = contact.username;
+    this.contact.password = contact.password;
 
     if (this.contact.sexGender === '') {
       this.contact.sexGender = 'M';
@@ -67,8 +74,6 @@ export class AddContactComponent implements OnInit, OnDestroy {
     }
     this.contact = this.contactClear();
     this.service.updateContact(this.contactClear());
-    this.addForm.reset();
-
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { MeetingService } from '../meeting.service';
+import { MeetingService } from '../../../services/meeting.service';
 import { Observable } from 'rxjs';
 
 @Component({

@@ -1,6 +1,13 @@
-<header>
-  <app-menu-header (responseMenu)="menuMethodParent($event)"></app-menu-header>
-</header>
-
-<app-contact  *ngIf="menuValue === 'contact'"></app-contact>
-<app-meeting  *ngIf="menuValue === 'meeting'"></app-meeting>
+<!-- main app container -->
+<!-- <div class="jumbotron"> -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <alert></alert>
+          <!-- <app-contact *ngIf="menuValue === 'contact'"></app-contact>
+          <app-meeting *ngIf="menuValue === 'meeting'"></app-meeting> -->
+          <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->

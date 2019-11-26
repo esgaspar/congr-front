@@ -1,5 +1,8 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
+import { AuthenticationService } from './lib/services/authentication.service';
+import { Router } from '@angular/router';
+import { User } from './lib/model/user';
 
 
 @Component({
@@ -12,26 +15,12 @@ export class AppComponent {
   @HostBinding('class') componentCssClass;
   contactEdit: any;
   menuValue: any;
+  currentUser: User;
 
-  constructor(public overlayContainer: OverlayContainer) {
-    this.onSetTheme('light-theme');
-    // dark-theme
-    // light-theme
-    // default-theme
-  }
+  constructor(private router: Router,
+    private authenticationService: AuthenticationService) {
 
-  contactUpdate($event) {
-    this.contactEdit = $event;
-  }
-
-  menuMethodParent($event) {
-    this.menuValue = $event;
-  }
-
-
-  onSetTheme(theme) {
-    this.overlayContainer.getContainerElement().classList.add(theme);
-    this.componentCssClass = theme;
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
 }

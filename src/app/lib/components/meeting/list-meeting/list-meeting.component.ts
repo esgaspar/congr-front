@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { MeetingService } from '../meeting.service';
+import { MeetingService } from '../../../services/meeting.service';
 import {MatStepper} from '@angular/material';
 
 

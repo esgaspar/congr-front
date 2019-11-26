@@ -1,7 +1,9 @@
 <form>
-    <div class="col-md-10">
+    <div class="col-md-12">
   <congr-input-icon id="firstName" placeholder="Nome" [(inputModel)]="addForm.firstName" type="text" icon="assignment_ind"></congr-input-icon>
   <congr-input-icon id="lastName" placeholder="Sobrenome" [(inputModel)]="addForm.lastName" type="text" icon="assignment_ind"></congr-input-icon>
+  <congr-input-icon id="username" placeholder="username" [(inputModel)]="addForm.username" type="text" icon="assignment_ind"></congr-input-icon>
+  <congr-input-icon id="password" placeholder="password" [(inputModel)]="addForm.password" type="text" icon="assignment_ind"></congr-input-icon>
     </div>
     <p>
         <button (click)="add(addForm);service.updateContact(contactClear())" class="btn btn-primary mt-5">{{contact._id ? 'Salvar':'Novo'}}</button>
