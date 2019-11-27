@@ -29,6 +29,7 @@ import { LoginComponent } from './lib/components/login/login.component';
 import { RegisterComponent } from './lib/components/register/register.component';
 import { AlertComponent } from './lib/components/class/alert/alert.component';
 import { DashboardComponent } from './lib/components/dashboard.component';
+import { CongregationComponent } from './lib/components/congregation/congregation.component';
 
 
 
@@ -54,7 +55,8 @@ import { DashboardComponent } from './lib/components/dashboard.component';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    AlertComponent
+    AlertComponent,
+    CongregationComponent
   ],
   imports: [
     BrowserModule,

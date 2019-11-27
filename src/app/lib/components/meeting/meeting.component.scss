@@ -1,11 +1,6 @@
 @import '../../vars.scss';
+@import '../../default.scss';
 
-.root {
-  background-color: white;
-  margin: 0 auto;
-  top: $top-!important;
-
-}
 
 .content{
   padding-top: $content!important;
