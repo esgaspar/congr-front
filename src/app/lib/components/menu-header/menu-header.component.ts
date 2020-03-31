@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
-import { ContactService } from '../../services/contact.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-menu-header',
@@ -12,7 +12,7 @@ export class MenuHeaderComponent implements OnInit {
   navbarOpen = false;
 
   constructor(private router: Router,
-    private contactService: ContactService) { }
+    private userService: UserService) { }
 
   @Output() responseMenu = new EventEmitter();
 
@@ -30,7 +30,7 @@ export class MenuHeaderComponent implements OnInit {
 
 
   logout() {
-    this.contactService.logout();
+    this.userService.logout();
     this.router.navigate(['/login']);
   }
 }

@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first, map } from 'rxjs/operators';
 
 import { AlertService } from '../../services/alert.service';
-import { ContactService } from '../../services/contact.service';
+import { UserService } from '../../services/user.service';
 
 
 
@@ -19,11 +19,11 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private contactService: ContactService,
+    private userService: UserService,
     private alertService: AlertService
   ) {
     // redirect to home if already logged in
-    if (this.contactService.currentUserValue) {
+    if (this.userService.currentUserValue) {
       this.router.navigate([this.route.snapshot.queryParams['returnUrl'] || '/dashboard']);
     }
   }
@@ -54,10 +54,10 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-    console.log("contactService");
-    (await this.contactService.login(this.f.username.value, this.f.password.value))
+    console.log("userService");
+    (await this.userService.login(this.f.username.value, this.f.password.value))
 
-    if (this.contactService.currentUser) {
+    if (this.userService.currentUser) {
       this.router.navigate(['dashboard']);
       this.loading = false;
 

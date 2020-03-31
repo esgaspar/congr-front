@@ -13,7 +13,7 @@ import { User } from './lib/model/user';
 export class AppComponent {
   title = 'congr-front';
   @HostBinding('class') componentCssClass;
-  contactEdit: any;
+  userEdit: any;
   menuValue: any;
   currentUser: User;
 

@@ -1,23 +1,23 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 
 
-import { ContactService } from '../../services/contact.service';
+import { UserService } from '../../services/user.service';
 
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss'],
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ContactComponent implements OnInit {
+export class UserComponent implements OnInit {
 
   @Input() menuValue: any;
   params: any;
   private lat: number;
   private long: number;
 
-  constructor(public contactService: ContactService) { }
+  constructor(public userService: UserService) { }
 
   getPosition = async () => {
     navigator.geolocation.getCurrentPosition((position) => {

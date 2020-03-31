@@ -1,0 +1,15 @@
+.radio{
+    margin: 0.5em;
+    border: none;
+    >label{
+        margin-left: 2rem;
+    }
+}
+.icon{
+    font-size: 3rem;
+    padding-left: 0.75rem;
+    &:hover {
+        color: #424242!important;
+        cursor: default;
+      }
+}

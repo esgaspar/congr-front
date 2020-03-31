@@ -9,7 +9,7 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class DashboardComponent implements OnInit {
   @Input() menuValue: any;
-  contactEdit: any;
+  userEdit: any;
 
 
   constructor(private router: Router,
@@ -20,8 +20,8 @@ export class DashboardComponent implements OnInit {
     console.log('menu', this.menuValue);
   }
 
-  contactUpdate($event) {
-    this.contactEdit = $event;
+  userUpdate($event) {
+    this.userEdit = $event;
   }
 
 

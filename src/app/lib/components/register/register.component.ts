@@ -5,8 +5,8 @@ import { first } from 'rxjs/operators';
 
 import { AlertService } from '../../services/alert.service';
 import { UserService } from '../../services/user.service';
-import { ContactService } from '../../services/contact.service';
 import { AuthenticationService } from '../../services/authentication.service';
+import { JsonPipe } from '@angular/common';
 
 @Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
@@ -19,8 +19,7 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService,
     private userService: UserService,
-    private alertService: AlertService,
-    private contactService: ContactService
+    private alertService: AlertService
 
   ) {
     // redirect to home if already logged in
@@ -45,7 +44,6 @@ export class RegisterComponent implements OnInit {
   async onSubmit() {
     this.submitted = true;
 
-    // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
     }
@@ -55,16 +53,15 @@ export class RegisterComponent implements OnInit {
     console.log("front registrer", this.registerForm.value);
 
 
-    (await this.contactService.add(this.registerForm.value)).subscribe(
+    (await this.userService.add(this.registerForm.value)).subscribe(
 
       data => {
-
-        this.alertService.success('Registration successful', true);
+        this.alertService.success('Usuario criado com sucesso, para continuar informe o username catastrado - ' + this.registerForm.value.username+' - para o Administrador ', true);
         this.router.navigate(['/login']);
 
       },
       error => {
-        this.alertService.error(error);
+        this.alertService.error(JSON.stringify(error));
         this.loading = false;
       });
 

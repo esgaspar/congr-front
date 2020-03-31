@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddContactComponent } from './lib/components/contact/add-contact/add-contact.component';
-import { EditContactComponent } from './lib/components/contact/edit-contact/edit-contact.component';
-import { RemoveContactComponent } from './lib/components/contact/remove-contact/remove-contact.component';
-import { ListContactComponent } from './lib/components/contact/list-contact/list-contact.component';
+import { AddUserComponent } from './lib/components/user/add-user/add-user.component';
+import { EditUserComponent } from './lib/components/user/edit-user/edit-user.component';
+import { RemoveUserComponent } from './lib/components/user/remove-user/remove-user.component';
+import { ListUserComponent } from './lib/components/user/list-user/list-user.component';
 
 import { AddMeetingComponent } from './lib/components/meeting/add-meeting/add-meeting.component';
 import { EditMeetingComponent } from './lib/components/meeting/edit-meeting/edit-meeting.component';
@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MenuHeaderComponent } from './lib/components/menu-header/menu-header.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ContactComponent } from './lib/components/contact/contact.component';
+import { UserComponent } from './lib/components/user/user.component';
 import { MeetingComponent } from './lib/components/meeting/meeting.component';
 
 
@@ -30,6 +30,7 @@ import { RegisterComponent } from './lib/components/register/register.component'
 import { AlertComponent } from './lib/components/class/alert/alert.component';
 import { DashboardComponent } from './lib/components/dashboard.component';
 import { CongregationComponent } from './lib/components/congregation/congregation.component';
+import { RadioComponent } from './lib/components/class/radio/radio.component';
 
 
 
@@ -37,10 +38,10 @@ import { CongregationComponent } from './lib/components/congregation/congregatio
   declarations: [
     AppComponent,
 
-    AddContactComponent,
-    EditContactComponent,
-    RemoveContactComponent,
-    ListContactComponent,
+    AddUserComponent,
+    EditUserComponent,
+    RemoveUserComponent,
+    ListUserComponent,
 
     AddMeetingComponent,
     EditMeetingComponent,
@@ -49,14 +50,15 @@ import { CongregationComponent } from './lib/components/congregation/congregatio
 
 
     MenuHeaderComponent,
-    ContactComponent,
+    UserComponent,
     MeetingComponent,
     InputIconComponent,
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
     AlertComponent,
-    CongregationComponent
+    CongregationComponent,
+    RadioComponent
   ],
   imports: [
     BrowserModule,

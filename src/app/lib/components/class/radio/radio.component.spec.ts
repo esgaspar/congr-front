@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RemoveContactComponent } from './remove-contact.component';
+import { RadioComponent } from './radio.component';
 
-describe('RemoveContactComponent', () => {
-  let component: RemoveContactComponent;
-  let fixture: ComponentFixture<RemoveContactComponent>;
+describe('RadioComponent', () => {
+  let component: RadioComponent;
+  let fixture: ComponentFixture<RadioComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RemoveContactComponent ]
+      declarations: [ RadioComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RemoveContactComponent);
+    fixture = TestBed.createComponent(RadioComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

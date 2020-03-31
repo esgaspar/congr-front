@@ -14,8 +14,8 @@ export class AuthenticationService {
 
   private URLbase = 'http://localhost:3000/';
 
-  private contactBehavior = new BehaviorSubject<any>(new Object());
-  contact = this.contactBehavior.asObservable();
+  private userBehavior = new BehaviorSubject<any>(new Object());
+  user = this.userBehavior.asObservable();
 
   public currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<User>;
@@ -34,7 +34,7 @@ export class AuthenticationService {
   public async login(username, password) {
     console.log('login-service', username);
 
-    return this.httpClient.post(this.URLbase + 'contact/authenticate/', { "username": username, "password": password }, {
+    return this.httpClient.post(this.URLbase + 'user/authenticate/', { "username": username, "password": password }, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       })
