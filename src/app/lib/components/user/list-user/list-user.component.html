@@ -11,18 +11,18 @@
         <th class=".text-center">
           <mat-icon mat-icon inline=true class=".text-center">delete_forever</mat-icon>
         </th>
-        <th class=".text-center">
+        <!-- <th class=".text-center">
           <mat-icon mat-icon inline=true class=".text-center">edit</mat-icon>
-        </th>
+        </th> -->
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor='let user of service.userList; let i = index'>
+      <tr *ngFor='let user of service.userList; let i = index' (click)='userEdit(user, i)' >
         <!-- <th >{{user._id}}</th> -->
-        <td><mat-icon mat-icon inline=true>{{user.status && user.status.situation === 'Ativo'? "check" : "clear"}}</mat-icon>
+        <td [ngClass]="{'bg-warning': isInactive(user)}" ><mat-icon mat-icon inline=true>{{user.status && user.status.situation === 'Ativo'? "check" : "clear"}}</mat-icon>
         </td>
-        <td>{{user.lastName}}, {{user.firstName}}</td>
-        <td class="text-center">
+        <td [ngClass]="{'bg-warning': isInactive(user)}">{{user.lastName}}, {{user.firstName}}</td>
+        <td [ngClass]="{'bg-warning': isInactive(user)}" class="text-center">
 
           <button mat-icon-button color="primary" aria-label="Deletar contatato" class="btn btn-outline-dark"
             mat-flat-button mat-icon-button mat-fab (click)='delete(user._id, i)'>
@@ -30,12 +30,12 @@
           </button>
 
         </td>
-        <td class="text-center mt-5">
+        <!-- <td class="text-center mt-5">
           <button mat-icon-button class="btn btn-outline-dark" mat-flat-button mat-icon-button mat-fab
             (click)='userEdit(user, i)'>
             <mat-icon mat-icon inline=true>edit</mat-icon>
           </button>
-        </td>
+        </td> -->
       </tr>
     </tbody>
   </table>

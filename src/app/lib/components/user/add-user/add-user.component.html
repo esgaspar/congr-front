@@ -1,11 +1,15 @@
 <form>
-    <div class="col-md-12">
-  <congr-input-icon id="firstName" placeholder="Nome" [(inputModel)]="addForm.firstName" type="text" icon="account_box"></congr-input-icon>
-  <congr-input-icon id="lastName" placeholder="Sobrenome" [(inputModel)]="addForm.lastName" type="text" icon="account_box"></congr-input-icon>
-  <congr-input-icon id="username" placeholder="username" [(inputModel)]="addForm.username" type="text" icon="verified_user"></congr-input-icon>
-  <congr-input-icon id="password" placeholder="password" [(inputModel)]="addForm.password" type="text" icon="fingerprint"></congr-input-icon>
-  <congr-radio id="status" placeholder="status" [(inputModel)]="addForm.status" [options]="statusOptions" icon="check_box"></congr-radio>
-</div>
+    <div class="">
+        <div class="form-group">
+            <congr-input-icon id="firstName" placeholder="Nome" [(inputModel)]="addForm.firstName" type="text" icon="account_box"></congr-input-icon>
+            <congr-input-icon id="lastName" placeholder="Sobrenome" [(inputModel)]="addForm.lastName" type="text" icon="group"></congr-input-icon>
+        </div>
+        <div class="form-group">
+            <congr-input-icon id="username" placeholder="username" [(inputModel)]="addForm.username" type="text" icon="verified_user"></congr-input-icon>
+            <congr-input-icon id="password" placeholder="password" [(inputModel)]="addForm.password" type="password" icon="fingerprint"></congr-input-icon>
+            <congr-radio id="status" placeholder="status" [(inputModel)]="addForm.status" [options]="statusOptions" icon="check_box"></congr-radio>
+        </div>
+    </div>
     <p>
         <button (click)="add(addForm);service.updateUser(userClear())" class="btn btn-primary mt-5">{{user._id ? 'Salvar':'Novo'}}</button>
     </p>

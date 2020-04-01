@@ -41,5 +41,10 @@ export class ListUserComponent implements OnInit, OnDestroy {
 
   public userEdit(value, index) {
     this.service.updateUser(value);
+    // this.list();
+  }
+
+  public isInactive(user){
+    return user.status && user.status.situation !== 'Ativo';
   }
 }

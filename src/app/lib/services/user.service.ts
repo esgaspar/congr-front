@@ -66,17 +66,22 @@ export class UserService implements OnInit {
         }).pipe(map(data =>
             data));
     }
-    public delete(userId) {
-        return this.httpClient.delete(this.URLbase + `user/manager/${userId}`);
+    public delete(UserId) {
+        return this.httpClient.delete(this.URLbase + `user/manager/${UserId}`);
     }
     public async update(user) {
-        console.log("Atualizando usuario front", user);
-        return this.httpClient.put(this.URLbase + 'user/manager', user, {
-            headers: new HttpHeaders({
-                'Content-Type': 'application/json',
-            })
-        }).pipe(map(data =>
-            data));
+
+       return this.userList.forEach(function(val){
+            console.log("Atualizando usuario front", val);
+            return this.httpClient.put(this.URLbase + 'user/manager', val, {
+                headers: new HttpHeaders({
+                    'Content-Type': 'application/json',
+                })
+            }).pipe(map(data =>
+                data));
+          });
+
+
     }
 
     public get currentUserValue(): User {

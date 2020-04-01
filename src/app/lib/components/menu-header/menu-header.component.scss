@@ -1,19 +1,31 @@
 @import "../../vars.scss";
 
+.nav-item{
+  color: white;
+  z-index: 10001;
+
+  &:hover{
+    background-color: rgb(55, 52, 51, 0.97);
+  }
+}
 .navbar-dark,
 .bg-dark {
   // height: 3rem;
-  color: rgb(34, 34, 34) !important;
-  background-color: rgb(55, 52, 51, 0.99) !important;
+  color: rgb(34, 34, 34);
+  background-color: rgb(55, 52, 51, 0.95);
   color: white;
-  background-color: white;
   top: $top;
   z-index: 10000;
   text-align: center;
   width: calc(100%);
   overflow: auto;
   margin: 0px;
-   position: fixed;
+  position: fixed;
   right: 0;
   padding-left: 20%;
+
+  // width: auto;
+  background-color: #373432;
+  height: 44px;
+  min-height: 30px;
 }

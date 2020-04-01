@@ -1,4 +1,13 @@
 @import 'lib/vars.scss';
+
+body {
+  font-family: WTMannaSans,Arial,"Arial Unicode MS",sans-serif;
+  line-height: 1.5;
+  color: #222;
+  line-break: strict;
+  background-color: #eceae7;
+}
+
 header {
   background-color: white;
   color: white;
@@ -12,4 +21,13 @@ header {
     background-color: white;
     color: white;
   }
+}
+
+.container{
+  box-shadow: 0 4px 8px 0 #eceae7;
+  -moz-box-shadow: 0 4px 8px 0 #eceae7;
+  -webkit-box-shadow: 0 4px 8px 0 #eceae7;
+  -khtml-box-shadow: 0 4px 8px 0 #eceae7;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color=#eceae7,direction=120,strength=4)"; /* IE8+ */
+  filter:progid:DXImageTransform.Microsoft.Shadow(color=#eceae7,direction=120,strength=4); /* IE7 and lower */
 }
