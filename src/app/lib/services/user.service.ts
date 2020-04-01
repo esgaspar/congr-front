@@ -72,17 +72,12 @@ export class UserService implements OnInit {
     }
     public async update(user) {
 
-       return this.userList.forEach(function(val){
-            console.log("Atualizando usuario front", val);
-            return this.httpClient.put(this.URLbase + 'user/manager', val, {
+            return this.httpClient.put(this.URLbase + 'user/manager', user, {
                 headers: new HttpHeaders({
                     'Content-Type': 'application/json',
                 })
             }).pipe(map(data =>
                 data));
-          });
-
-
     }
 
     public get currentUserValue(): User {

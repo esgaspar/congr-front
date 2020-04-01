@@ -20,6 +20,7 @@ export class RadioComponent implements OnInit {
 
 
   ngOnInit() {
+    this.inputModel = !!this.inputModel.situation ? this.inputModel.situation : {situation : "Inativo", active: false, 'date': new Date().getDate()};
   }
 
   change(option) {
