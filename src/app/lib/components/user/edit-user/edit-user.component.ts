@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-edit-User',
-  templateUrl: './edit-User.component.html',
-  styleUrls: ['./edit-User.component.scss']
+  templateUrl: './edit-user.component.html',
+  styleUrls: ['./edit-user.component.scss']
 })
 export class EditUserComponent implements OnInit {
 
