@@ -32,20 +32,36 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
+  public get userStorage(): string {
+    return localStorage.getItem('currentUser');
+  }
+
   public async login(username, password) {
     console.log('login-service', username);
 
-    return this.httpClient.post(this.URLbase + 'user/authenticate/', { "username": username, "password": password }, {
+    this.httpClient.post(this.URLbase + 'user/authenticate/', { "username": username, "password": password }, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       })
-    })
+    }).subscribe(data => {
+      if (data[0] && data[0].hasOwnProperty('_id')) {
+        console.log("auth", data)
+        localStorage.setItem('currentUser', JSON.stringify(data));
+        this.currentUserSubject.next(data);
+
+      } else {
+        this.currentUserSubject.next(null);
+        localStorage.setItem('currentUser', null);
+
+      }
+    });
+
+
   }
 
 
   public logout() {
+    this.currentUserSubject.next(null);
     localStorage.setItem('currentUser', null);
-    this.currentUserSubject = new BehaviorSubject<User>(null);
   }
-
 }

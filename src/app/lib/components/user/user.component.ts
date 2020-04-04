@@ -14,23 +14,12 @@ export class UserComponent implements OnInit {
 
   @Input() menuValue: any;
   params: any;
-  private lat: number;
-  private long: number;
 
   constructor(public userService: UserService) { }
 
-  getPosition = async () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      console
-      this.lat = position.coords.latitude;
-      this.long = position.coords.longitude;
-    });
-  }
 
 
   async ngOnInit() {
-
-    await this.getPosition();
 
   }
 

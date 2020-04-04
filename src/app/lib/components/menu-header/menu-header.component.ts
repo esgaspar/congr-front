@@ -10,9 +10,11 @@ import { UserService } from '../../services/user.service';
 })
 export class MenuHeaderComponent implements OnInit {
   navbarOpen = false;
+  public isLogged = false;
 
   constructor(private router: Router,
-    private userService: UserService) { }
+    private userService: UserService,
+    private authService: AuthenticationService,) { }
 
   @Output() responseMenu = new EventEmitter();
 
@@ -30,7 +32,7 @@ export class MenuHeaderComponent implements OnInit {
 
 
   logout() {
-    this.userService.logout();
+    this.authService.logout();
     this.router.navigate(['/login']);
   }
 }

@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
 
 
   constructor(private router: Router,
-    private authenticationService: AuthenticationService) { }
+    private authService: AuthenticationService) { }
 
   menuMethodParent($event) {
 
@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
 
 
   logout() {
-    this.authenticationService.logout();
+    this.authService.logout();
     this.router.navigate(['/']);
   }
 

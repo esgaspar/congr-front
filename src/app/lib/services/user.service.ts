@@ -94,51 +94,51 @@ export class UserService implements OnInit {
     //     })
     // }
 
-    public async login(username, password) {
-        console.log("login", username, password);
-        return this.httpClient.post(this.URLbase + 'user/authenticate/', { "username": username, "password": password }, {
-            headers: new HttpHeaders({
-                'Content-Type': 'application/json',
-            })
-        }).pipe(first())
-            .subscribe(
-                data => {
-                    if (data[0]._id) {
-                        localStorage.setItem('currentUser', JSON.stringify(data));
-                        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-                        this.currentUser = this.currentUserSubject.asObservable();
-                        // this.router.navigate([this.returnUrl]);
-                    } else {
-                        this.alertService.error("Usuario ou senha invalidos");
-                    }
-                },
-                error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                    console.log("falha login");
-                });
-    }
+    // public async login(username, password) {
+    //     console.log("login", username, password);
+    //     return this.httpClient.post(this.URLbase + 'user/authenticate/', { "username": username, "password": password }, {
+    //         headers: new HttpHeaders({
+    //             'Content-Type': 'application/json',
+    //         })
+    //     }).pipe(first())
+    //         .subscribe(
+    //             data => {
+    //                 if (data[0]._id) {
+    //                     localStorage.setItem('currentUser', JSON.stringify(data));
+    //                     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    //                     this.currentUser = this.currentUserSubject.asObservable();
+    //                     // this.router.navigate([this.returnUrl]);
+    //                 } else {
+    //                     this.alertService.error("Usuario ou senha invalidos");
+    //                 }
+    //             },
+    //             error => {
+    //                 this.alertService.error(error);
+    //                 this.loading = false;
+    //                 console.log("falha login");
+    //             });
+    // }
 
 
-    public logout() {
-        localStorage.setItem('currentUser', null);
+    // public logout() {
+    //     localStorage.setItem('currentUser', null);
 
-    }
+    // }
 
 
-    getPosition(): Promise<any> {
-        return new Promise((resolve, reject) => {
+    // getPosition(): Promise<any> {
+    //     return new Promise((resolve, reject) => {
 
-            navigator.geolocation.getCurrentPosition(resp => {
+    //         navigator.geolocation.getCurrentPosition(resp => {
 
-                resolve({ lng: resp.coords.longitude, lat: resp.coords.latitude });
-            },
-                err => {
-                    reject(err);
-                });
-        });
+    //             resolve({ lng: resp.coords.longitude, lat: resp.coords.latitude });
+    //         },
+    //             err => {
+    //                 reject(err);
+    //             });
+    //     });
 
-    }
+    // }
 
     register(user: User) {
         return this.http.post(`/users/register`, user);

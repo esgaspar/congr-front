@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from '../../services/authentication.service';
 import { first, map } from 'rxjs/operators';
 
 import { AlertService } from '../../services/alert.service';
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private userService: UserService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private authService: AuthenticationService
   ) {
     // redirect to home if already logged in
     if (this.userService.currentUserValue) {
@@ -36,6 +38,17 @@ export class LoginComponent implements OnInit {
 
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+
+    this.authService.currentUser.subscribe(user => {
+      if (this.authService.currentUserValue) {
+        this.router.navigate(['/dashboard']);
+      } else {
+        this.alertService.error("Usuario ou senha invalidos", true);
+        this.router.navigate(['/']);
+      }
+      this.loading = false;
+    });
+
   }
 
   // convenience getter for easy access to form fields
@@ -43,29 +56,15 @@ export class LoginComponent implements OnInit {
 
   async onSubmit() {
     this.submitted = true;
+    this.loading = true;
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
+      this.alertService.error("Usuario ou senha inconsistentes");
+      this.loading = false;
       return;
-    } else {
-      console.log("deu pau....");
-      this.alertService.error("form invalido  :(");
-      this.loading = false;
     }
 
-    this.loading = true;
-    console.log("userService");
-    (await this.userService.login(this.f.username.value, this.f.password.value))
-
-    if (this.userService.currentUser) {
-      this.router.navigate(['dashboard']);
-      this.loading = false;
-
-    } else {
-      console.log("deu pau....");
-      this.alertService.error("Houve algum erro  :(");
-      this.loading = false;
-    }
-
+    await this.authService.login(this.f.username.value, this.f.password.value);
   }
 }
