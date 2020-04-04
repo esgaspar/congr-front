@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,6 +17,7 @@ export class DashboardComponent implements OnInit {
     private authenticationService: AuthenticationService) { }
 
   menuMethodParent($event) {
+
     this.menuValue = $event;
     console.log('menu', this.menuValue);
   }
@@ -30,5 +32,7 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log('Ambiente ', environment)
+  }
 }
