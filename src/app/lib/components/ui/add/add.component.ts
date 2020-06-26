@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add.component.scss']
 })
 export class AddComponent implements OnInit {
-
+  
   constructor() { }
-
+  
   ngOnInit(): void {
   }
+
+  public save(){}
 
 }

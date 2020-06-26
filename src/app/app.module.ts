@@ -38,7 +38,6 @@ import { UserComponent } from './lib/components/user/user.component';
 import { SelectComponent } from './lib/components/ui/select/select/select.component';
 import { FormsComponent } from './lib/components/general/forms/forms.component';
 import { ListComponent } from './lib/components/ui/list/list.component';
-import { AddComponent } from './lib/components/ui/add/add.component';
 
 @NgModule({
   declarations: [
@@ -77,8 +76,7 @@ import { AddComponent } from './lib/components/ui/add/add.component';
     CongregationComponent,
     RadioComponent,
     SelectComponent,
-    ListComponent,
-    AddComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
