@@ -1,0 +1,12 @@
+<div class="list-body">
+    <div class="collapse" >
+        <i (click)='getShowTable' class="{{ showTable ? 'fas fa-window-minimize' : 'fas fa-users-cog'}}">
+        </i>
+        <input *ngIf="showTable" id="find" placeholder="Buscar..." (keyup)="find($event)" type="text" />
+    </div>
+    <div class="list">
+
+        <ng-content *ngIf="showTable" [select]="'table'" @myInsertRemoveTrigger></ng-content>
+
+    </div>
+</div>

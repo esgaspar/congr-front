@@ -1,0 +1,33 @@
+<div class="container-list">
+
+  <app-list class="app-list" (search)="findUser($event)">
+
+    <table id="contactTable" class="table-responsive table-striped table-bordered table-hover overflow-hidden"
+      data-show-header="true" data-pagination="true" data-id-field="name" data-page-list="[5, 10, 25, 50, 100, ALL]"
+      data-page-size="5" *ngIf="showTable && contactListFilter && contactListFilter.length > 0">
+
+      <tbody>
+        <tr *ngFor='let contact of contactListFilter; let i = index' (click)='contactEdit(contact, i)'>
+          <td [ngClass]="{'inactive': isInactive(contact)}">
+            <button class="btn-on" *ngIf="contact.status && contact.status.situation === 'Ativo'"
+              (click)='activeEdit(contact)'>
+              <i class="fas fa-toggle-on"></i>
+            </button>
+            <button class="btn-off" *ngIf="contact.status && contact.status.situation === 'Inativo'"
+              (click)='activeEdit(contact)'>
+              <i class="fas fa-toggle-off"></i>
+            </button>
+          </td>
+          <td>{{contact.lastName}}, {{contact.firstName}}</td>
+          <td class="text-center">
+
+            <button class="btn-delete" (click)='delete(contact._id, i)'>
+              <i class="fas fa-user-minus"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </app-list>
+
+</div>

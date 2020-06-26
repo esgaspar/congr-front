@@ -1,0 +1,19 @@
+<app-list class="app-list" (search)="findTerritory($event)">
+
+  <table table id="territoryTable" class="table-responsive table-striped table-bordered table-hover overflow-hidden"
+    data-show-header="true" data-pagination="true" data-id-field="name" data-page-list="[5, 10, 25, 50, 100, ALL]"
+    data-page-size="5" *ngIf="showTable && territoryListFilter && territoryListFilter.length > 0">
+
+    <tbody>
+      <tr *ngFor='let territory of territoryListFilter; let i = index' (click)='territoryEdit(territory, i)'>
+        <td> </td>
+        <td class="text-center">
+          {{territory.code}}, {{territory.territoryName}}
+          <button class="btn-delete" (click)='delete(territory._id, i)'>
+            <i class="fas fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</app-list>

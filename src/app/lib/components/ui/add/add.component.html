@@ -1,0 +1,11 @@
+<form [formGroup]="form" class="add-territory-form">
+    <div>
+        <div class="form-group">
+            <ng-content [select]="'add'"></ng-content>
+
+        </div>
+        <p>
+            <button (click)="save" class="btn btn-primary mt-5">Novo</button>
+        </p>
+    </div>
+</form>

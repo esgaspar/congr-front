@@ -1,16 +1,36 @@
-<form>
-    <div class="">
+<form [formGroup]="form" class="add-form">
+
+    <div *ngIf="!isSave">Insira todas as informações obrigatorias para salvar o formulario.</div>
+
+    <div>
         <div class="form-group">
-            <congr-input-icon id="firstName" placeholder="Nome" [(inputModel)]="addForm.firstName" type="text" icon="account_box"></congr-input-icon>
-            <congr-input-icon id="lastName" placeholder="Sobrenome" [(inputModel)]="addForm.lastName" type="text" icon="group"></congr-input-icon>
-        </div>
-        <div class="form-group">
-            <congr-input-icon id="username" placeholder="username" [(inputModel)]="addForm.username" type="text" icon="verified_user"></congr-input-icon>
-            <congr-input-icon id="password" placeholder="password" [(inputModel)]="addForm.password" type="password" icon="fingerprint"></congr-input-icon>
-            <congr-radio id="status" placeholder="status" [(inputModel)]="addForm.status" [options]="statusOptions" icon="check_box"></congr-radio>
+            <congr-input-icon formControlName="firstName" controlType="text" icon="fas fa-smile-beam"
+                placeholder="Primeiro Nome" [c]="form.controls.lastName" [errors]="f.firstName.errors"
+                [pristine]="f.firstName.pristine" ruleType="justString">
+            </congr-input-icon>
+
+            <congr-input-icon formControlName="lastName" placeholder="Ultimo nome" controlType="text"
+                icon="fas fa-users" [errors]="f.lastName.errors" [pristine]="f.lastName.pristine">
+            </congr-input-icon>
+            <congr-input-icon formControlName="username" placeholder="username" controlType="text"
+                icon="fas fa-id-card-alt" [errors]="f.username.errors" [pristine]="f.username.pristine">
+            </congr-input-icon>
+
+            <div style="display: inline-block;">
+                <i *ngIf="showPass" class="fas fa-eye" (click)="showPass = !showPass"></i>
+                <i *ngIf="!showPass" class="fas fa-eye" (click)="showPass = !showPass"></i>
+
+                <congr-input-icon *ngIf="showPass" formControlName="password" placeholder="password"
+                    controlType="password" icon="fas fa-key-slash" [errors]="f.password.errors"
+                    [pristine]="f.password.pristine">
+                </congr-input-icon>
+                <congr-input-icon *ngIf="!showPass" formControlName="password" placeholder="password" controlType="text"
+                    icon="fas fa-key" [errors]="f.password.errors" [pristine]="f.password.pristine">
+                </congr-input-icon>
+            </div>
         </div>
     </div>
-    <p>
-        <button (click)="add(addForm);service.updateUser(userClear())" class="btn btn-primary mt-5">{{user._id ? 'Salvar':'Novo'}}</button>
-    </p>
+
+    <button (click)="save()" class="btn btn-primary mt-5">Limpar</button>
+
 </form>

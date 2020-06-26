@@ -1,0 +1,19 @@
+<form [formGroup]="form" class="add-form">
+    <div *ngIf="!isSave">Insira todas as informações obrigatorias para salvar o formulario.</div>
+    <div>
+        <div class="form-group">
+            <div class="form-group">
+                <congr-input-icon formControlName="code" controlType="text" icon="fas fa-smile-beam"
+                    placeholder="Código" [c]="form.controls.code" [errors]="f.code.errors" [pristine]="f.code.pristine">
+                </congr-input-icon>
+                <congr-input-icon formControlName="territoryName" controlType="text" icon="fas fa-smile-beam"
+                    placeholder="Território" [c]="form.controls.territoryName" [errors]="f.territoryName.errors"
+                    [pristine]="f.territoryName.pristine">
+                </congr-input-icon>
+            </div>
+        </div>
+        <p>
+            <button (click)="save()" class="btn btn-primary mt-5">Limpar</button>
+        </p>
+    </div>
+</form>

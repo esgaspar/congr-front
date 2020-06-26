@@ -14,6 +14,8 @@ export class UserComponent implements OnInit {
 
   @Input() menuValue: any;
   params: any;
+  opened: boolean;
+
 
   constructor(public userService: UserService) { }
 

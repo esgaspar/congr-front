@@ -1,0 +1,10 @@
+<div class="options">
+    <i class="icon {{icon}}"></i>
+    <div class="radio" *ngFor='let option of options; let i = index'>
+        <input type="radio" id="{{option.situation}}" [(ngModel)]="inputModel.situation" [value]="option.situation"
+            (ngModelChange)="change(option)">
+        <label for="{{option.situation}}">
+            {{option.situation}}
+        </label>
+    </div>
+</div>

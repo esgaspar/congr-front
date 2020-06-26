@@ -1,24 +1,24 @@
-<mat-horizontal-stepper #stepper *ngIf="service.meetingList.length > 0">
+<div #stepper *ngIf="service.meetingList.length > 0">
   <div *ngFor='let meeting of service.meetingList; let i = index'>
-    <mat-step>
-      <div id="todayNav" class = "noprint">
-        <button class="btn btn-outline-primary" mat-flat-button mat-icon-button matStepperPrevious mat-fab
+    <div>
+      <div id="todayNav" class="noprint">
+        <button class="btn btn-outline-primary"
           aria-label="anterior">
-          <mat-icon inline=true>navigate_before</mat-icon>
+          <div inline=true>navigate_before</div>
         </button>
-        <button class="btn btn-outline-primary" mat-flat-button mat-icon-button matStepperNext mat-fab
+        <button class="btn btn-outline-primary" 
           aria-label="proximo">
-          <mat-icon inline=true>navigate_next</mat-icon>
+          <div inline=true>navigate_next</div>
         </button>
       </div>
 
       <div *ngFor='let designation of meeting.designations; let i = index'>
         <div [ngClass]="designation.type">{{designation.title}}</div>
       </div>
-    </mat-step>
+    </div>
   </div>
-</mat-horizontal-stepper>
+</div>
 
-<div class = "emptyList" *ngIf="service.meetingList.length == 0">
+<div class="emptyList" *ngIf="service.meetingList.length == 0">
   Lista vazia
 </div>

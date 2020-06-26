@@ -1,3 +1,4 @@
+import { ListComponent } from './../../ui/list/list.component';
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 
@@ -9,6 +10,9 @@ import { UserService } from '../../../services/user.service';
 export class ListUserComponent implements OnInit, OnDestroy {
   service;
   users;
+  public showTable = true;
+  public userToFind;
+  public userListFilter;
 
   public subscribes = { user: null, list: null, delete: null };
 
@@ -30,12 +34,13 @@ export class ListUserComponent implements OnInit, OnDestroy {
   public list() {
     this.subscribes.list = this.service.list().subscribe((data: any) => {
       this.service.userList = data;
+      this.userListFilter = data;
     });
   }
 
   public delete(id, index) {
     this.subscribes.delete = this.service.delete(id).subscribe((reponse) => {
-      this.service.userList.splice(index, 1);
+      this.userListFilter.splice(index, 1);
     });
   }
 
@@ -44,7 +49,48 @@ export class ListUserComponent implements OnInit, OnDestroy {
     // this.list();
   }
 
-  public isInactive(user){
+  public async activeEdit(value) {
+    value.status.situation = value.status.situation === 'Ativo' ? 'Inativo' : 'Ativo';
+    this.service.updateUser(value);
+    this.service.update(value);
+
+    (await (this.service.update(value))).subscribe((reponse) => {
+    });
+
+  }
+
+  public isInactive(user) {
     return user.status && user.status.situation !== 'Ativo';
+  }
+
+  public cleanFilter() {
+    this.userListFilter = this.service.userList;
+  }
+
+  public async findUser($ev) {
+    let val = $ev.target.value;
+
+    if (!val) {
+      this.userListFilter = this.service.userList;
+      return;
+    }
+    if (val.length <= 2) {
+      this.userListFilter = this.service.userList;
+      return;
+    }
+    let res = await this.service.userList
+      .filter(function (user) {
+        return user.firstName.toLowerCase().includes(val.toLowerCase()) || user.lastName.toLowerCase().includes(val.toLowerCase());
+      });
+
+    this.userListFilter = res.length > 0 ? res : this.service.userList;
+  }
+
+  get getShowTable() {
+    this.showTable = !this.showTable;
+    if (this.showTable) {
+      this.cleanFilter();
+    }
+    return this.showTable;
   }
 }

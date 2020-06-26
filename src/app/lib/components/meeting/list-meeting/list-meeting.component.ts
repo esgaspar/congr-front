@@ -1,12 +1,8 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { MeetingService } from '../../../services/meeting.service';
-import {MatStepper} from '@angular/material';
 
 
 
-import {
-  MatStepperModule
-} from '@angular/material';
 
 @Component({
   selector: 'app-list-meeting',
@@ -19,8 +15,6 @@ export class ListMeetingComponent implements OnInit, OnDestroy {
   loading = true;
 
   public subscribes = { meeting: null, list: null, delete: null };
-  @ViewChild(MatStepper, {static: false}) stepper !: MatStepper;
-
 
   constructor(private meetingService: MeetingService) {
     this.service = meetingService;
@@ -53,6 +47,6 @@ export class ListMeetingComponent implements OnInit, OnDestroy {
   }
 
   public move(index: number) {
-    this.stepper.selectedIndex = index;
+    // this.stepper.selectedIndex = index;
   }
 }

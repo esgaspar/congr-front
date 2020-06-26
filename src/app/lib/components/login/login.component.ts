@@ -5,11 +5,12 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { first, map } from 'rxjs/operators';
 
 import { AlertService } from '../../services/alert.service';
-import { UserService } from '../../services/user.service';
 
-
-
-@Component({ templateUrl: 'login.component.html' })
+@Component({
+  selector: 'cong-login',
+  templateUrl: 'login.component.html',
+  styleUrls: ['login.component.scss']
+})
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
@@ -18,16 +19,10 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
     private router: Router,
-    private userService: UserService,
     private alertService: AlertService,
     private authService: AuthenticationService
   ) {
-    // redirect to home if already logged in
-    if (this.userService.currentUserValue) {
-      this.router.navigate([this.route.snapshot.queryParams['returnUrl'] || '/dashboard']);
-    }
   }
 
   ngOnInit() {
@@ -36,8 +31,7 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
 
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl = '/';
 
     this.authService.currentUser.subscribe(user => {
       if (this.authService.currentUserValue) {

@@ -1,0 +1,41 @@
+<div class="input" title={{placeholder}}>
+  <label [ngSwitch]="controlType">
+    <i class="icon {{icon}}"></i>
+    {{label}}
+
+    <input title={{placeholder}} *ngSwitchCase="'text'" placeholder="{{placeholder}}" type="text" ngDefaultControl
+      #valueAccessor ngModel>
+
+    <input title={{placeholder}} *ngSwitchCase="'password'" placeholder="{{placeholder}}" type="password"
+      ngDefaultControl #valueAccessor ngModel>
+
+
+    <select title={{placeholder}} *ngSwitchCase="'dropdown'" ngDefaultControl #valueAccessor ngModel>
+      <ng-content></ng-content>
+    </select>
+
+    <div title={{placeholder}} *ngSwitchCase="'radio'" class="options">
+      <div class="radio" *ngFor='let option of options; let i = index'>
+        <div *ngIf="option">
+          <input type="checkbox" id="{{option.situation}}" [checked]="val && val.situation === option.situation"
+            ngDefaultControl #valueAccessor ngModel (click)="writeValue(option)">
+          <label for="{{option.situation}}">
+            {{option.situation}}
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="errors && !pristine">
+      <div *ngIf="errors.required">Valor obrigatório</div>
+      <div *ngIf="errors.pattern">
+        <div *ngIf="ruleType === 'justString'">
+          Apenas letras.
+        </div>
+
+      </div>
+    </div>
+
+  </label>
+
+</div>

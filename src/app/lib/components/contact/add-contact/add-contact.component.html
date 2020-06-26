@@ -1,0 +1,26 @@
+<form [formGroup]="form" class="add-form">
+    <div>
+        <div *ngIf="!isSave">Insira todas as informações obrigatorias para salvar o formulario.</div>
+
+        <div class="form-group">
+            <congr-input-icon formControlName="firstName" controlType="text" icon="fas fa-smile-beam"
+                placeholder="Primeiro Nome" [c]="form.controls.lastName" [errors]="f.firstName.errors"
+                [pristine]="f.firstName.pristine" ruleType="justString">
+            </congr-input-icon>
+
+            <congr-input-icon formControlName="lastName" placeholder="Ultimo nome" controlType="text"
+                icon="fas fa-users" [errors]="f.lastName.errors" [pristine]="f.lastName.pristine">
+            </congr-input-icon>
+        </div>
+        <div class="form-group">
+            <congr-input-icon formControlName="contactname" placeholder="Prefere ser chamado " controlType="text"
+                icon="fas fa-grin-beam-sweat" [errors]="f.contactname.errors" [pristine]="f.contactname.pristine">
+            </congr-input-icon>
+        </div>
+        <div class="form-group">
+        </div>
+    </div>
+    <p>
+        <button class="btn btn-primary mt-5">{{data._id ? 'Salvar':'Novo'}}</button>
+    </p>
+</form>

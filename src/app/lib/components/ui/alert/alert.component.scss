@@ -1,0 +1,55 @@
+@import "../../../vars.scss";
+@import "../../../palleta.scss";
+
+.alert {
+  height: 100px;
+  position: relative;
+  top: 0;
+  margin-left: 0;
+  z-index: 10000;
+
+  border-radius: 5px;
+  border: thin;
+  font-size: 1.5rem !important;
+
+  &.alert-success {
+    color: #424242 !important;
+    background-color: rgba(144, 216, 71, 0.5);
+    padding: 3rem;
+  }
+  &.alert-danger {
+    color: #fafafa !important;
+    background-color: rgba(191, 57, 57, 1);
+    padding: 3rem;
+  }
+
+  .close {
+    cursor: pointer;
+    margin-top: -2.5rem;
+    .fas {
+      color: $cor-light-5 !important;
+      color: $cor-light-1 !important;
+    }
+    :hover {
+      color: $cor-light-5 !important;
+    }
+  }
+}
+@media (min-width: 600px) {
+  .alert {
+    width: 100%;
+    .close {
+      float: right;
+      margin-right: -2.5rem;
+    }
+  }
+}
+@media (max-width: 600px) {
+  .alert {
+    max-width: 300px;
+    .close {
+      float: left;
+      margin-left: -2.5rem;
+    }
+  }
+}

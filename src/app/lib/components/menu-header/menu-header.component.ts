@@ -1,22 +1,39 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MenuService } from './../../services/menu.service';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
-import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-menu-header',
   templateUrl: './menu-header.component.html',
   styleUrls: ['./menu-header.component.scss']
 })
-export class MenuHeaderComponent implements OnInit {
+export class MenuHeaderComponent implements OnInit, OnDestroy {
   navbarOpen = false;
-  public isLogged = false;
-
-  constructor(private router: Router,
-    private userService: UserService,
-    private authService: AuthenticationService,) { }
-
+  public isActive: any = false;
   @Output() responseMenu = new EventEmitter();
+  
+  private saveStatusIcon: any = false;
+  
+  private currentUserSub;
+  private saveStatusSub;
+  
+  constructor(private router: Router,
+    private menuService: MenuService,
+    private authService: AuthenticationService,) {
+
+    this.currentUserSub = this.authService.currentUser.subscribe(user => {
+      this.isActive = user && user.status && user.status.situation === "Ativo";
+    })
+  }
+
+
+
+  ngOnDestroy(): void {
+    this.currentUserSub.unsubscribe();
+    this.saveStatusSub.unsubscribe();
+  }
+
 
   menu(value) {
     this.responseMenu.emit(value);
@@ -28,6 +45,19 @@ export class MenuHeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.saveStatusSub = this.menuService.saveStatus.subscribe(data => {
+      if (data === 'saved') {
+        this.saveStatusIcon = "fas fa-cloud";
+      } else if (data === 'saving') {
+        this.saveStatusIcon = 'fas fa-cloud-upload-alt';
+      }
+      else {
+        this.saveStatusIcon = false;
+
+      }
+
+    });
   }
 
 

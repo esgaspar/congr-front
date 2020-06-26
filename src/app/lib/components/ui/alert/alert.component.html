@@ -1,0 +1,4 @@
+<div *ngIf="message" [ngClass]="message.cssClass" click="close()">
+    <div class="close" (click)="close()" ><i class="fas fa-window-close"></i></div>
+    {{message.text}}
+</div>

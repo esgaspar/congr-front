@@ -1,0 +1,57 @@
+table {
+  border-collapse: collapse;
+  border: none !important;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  tr {
+    cursor: pointer;
+    td {
+    }
+    th {
+      height: 2rem;
+    }
+  }
+  tr:hover {
+    // background-color: rgba(255, 212, 0, 0.2);
+    background-color: #f0f0f070;
+  }
+}
+
+.fas,
+.fab {
+  font-size: 24px !important;
+  padding: 0.2rem;
+}
+.btn-delete {
+  text-decoration: none;
+  background-color: inherit;
+  border: 0.1em solid #ffffff;
+  border-radius: 3px;
+  float: right;
+  margin: 0 0.5rem 0 0.5rem;
+}
+.btn-delete:hover {
+  box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+.btn-off,
+.btn-on {
+  border: none;
+  text-decoration: none;
+  background-color: inherit;
+}
+.btn-off {
+  color: rgba(70, 70, 70, 0.8);
+}
+.btn-on {
+  color: rgba(0, 0, 0, 1);
+}
+.btn-off:hover,
+.btn-on:hover {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 1);
+  // color:  rgba(0, 0, 0, 0.4);
+}
+
+.inactive {
+}

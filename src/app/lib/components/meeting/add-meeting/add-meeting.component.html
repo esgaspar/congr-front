@@ -1,15 +1,15 @@
 <form [formGroup]="addForm" (ngSubmit)="add(addForm.value);service.updateMeeting(meetingClear())">
-    <div class="form-inline  col-md-2">
+    <div class="">
         <label for="firstName">Nome </label>
         <input type="text" class="form-control" formControlName="firstName" minlength="2" maxlength="10" size="10"
             required>
     </div>
-    <div class="form-inline col-md-2">
+    <div class="">
         <label for="lastName">Ultimo Nome</label>
         <input type="text" class="form-control" formControlName="lastName" minlength="2" maxlength="10" size="10"
             required>
     </div>
     <p>
-        <button type="submit" class="btn btn-primary mt-5">{{meeting._id ? 'Salvar':'Novo'}}</button>
+        <button type="submit" class="btn">{{meeting._id ? 'Salvar':'Novo'}}</button>
     </p>
 </form>

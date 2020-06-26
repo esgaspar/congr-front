@@ -1,0 +1,40 @@
+input {
+  margin-bottom: 0px !important;
+}
+//   display: list-item;
+//   list-style-type: none;
+table {
+  display: table-column;
+  position: absolute;
+  overflow-y: hidden; //overflow-y:scroll;
+  overflow-x: auto !important; //overflow-x:hidden;
+
+  border-radius: 5px;
+  border: thin;
+  font-size: 1.5rem !important;
+  background-color: rgba(234, 222, 218, 1);
+  transition: 1.25s; /*added*/
+  max-height: 150px;
+}
+
+table,
+tr,
+td {
+  overflow-x: auto !important; //overflow-x:hidden;
+  transition: height 0.3s, padding 0.3s;
+}
+
+@media (min-width: 600px) {
+  table {
+    margin-top: -0.5rem;
+    width: 300px;
+    margin-left: 4rem;
+  }
+  .first {
+  }
+}
+@media (max-width: 600px) {
+  table {
+    width: calc(85%);
+  }
+}

@@ -1,7 +1,7 @@
-@import 'lib/vars.scss';
+@import "lib/vars.scss";
 
 body {
-  font-family: WTMannaSans,Arial,"Arial Unicode MS",sans-serif;
+  font-family: WTMannaSans, Arial, "Arial Unicode MS", sans-serif;
   line-height: 1.5;
   color: #222;
   line-break: strict;
@@ -15,7 +15,6 @@ header {
   margin: 0;
 }
 
-
 @media print {
   body {
     background-color: white;
@@ -23,11 +22,21 @@ header {
   }
 }
 
-.container{
+.container {
+  // background-color: red !important;
   box-shadow: 0 4px 8px 0 #eceae7;
   -moz-box-shadow: 0 4px 8px 0 #eceae7;
   -webkit-box-shadow: 0 4px 8px 0 #eceae7;
   -khtml-box-shadow: 0 4px 8px 0 #eceae7;
   -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color=#eceae7,direction=120,strength=4)"; /* IE8+ */
-  filter:progid:DXImageTransform.Microsoft.Shadow(color=#eceae7,direction=120,strength=4); /* IE7 and lower */
+  filter: progid:DXImageTransform.Microsoft.Shadow(color=#eceae7,direction=120,strength=4); /* IE7 and lower */
+}
+@media (min-width: 600px) {
+  .container {
+    width: calc(80%);
+    height: calc(100%);
+    margin-left: 10%;
+    background-color: #fff !important;
+    z-index: -1;
+  }
 }

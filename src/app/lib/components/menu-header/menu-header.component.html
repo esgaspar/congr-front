@@ -1,28 +1,16 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+<div class="header">
 
-    <a class="navbar-brand" href="#">
-        Contatos 
-    </a>
-
-    <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item" >
-                <a class="nav-link" (click)="menu('user')" href="#">Usuarios</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" (click)="menu('congregation')" href="#">Congregation</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" (click)="menu('meeting')" href="#">agenda</a>
-            </li>
-
-        </ul>
-    </div>
-    <ul class="nav navbar-nav navbar-right text-right">
-        <li> <a class="nav-link" (click)="logout()" href="#">Logout</a></li>
+    <a href="" class="logo">Congr</a>
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+    <a *ngIf="saveStatusIcon" href="" class="logo"> <i class="{{saveStatusIcon}}"></i></a>
+    <ul class="menu">
+        <li><a (click)="logout()" href="#logout">Logout</a></li>
     </ul>
-</nav>
+    <ul class="menu" *ngIf="isActive">
+        <li><a (click)="menu('user')" href="#users">Users</a></li>
+        <li><a (click)="menu('territory')" href="#territory">Territory</a></li>
+        <li><a (click)="menu('contact')" href="#contact">Contact</a></li>
+        <li><a href="#careers">Careers</a></li>
+    </ul>
+</div>

@@ -1,9 +1,0 @@
-<div class="radio form-inline  col-md-8">
-    <i class="icon material-icons">
-        {{icon}}
-      </i>
-    <label *ngFor='let option of options; let i = index'>
-        <input type="radio" [(ngModel)]="inputModel.situation" [value]="option.situation" (ngModelChange)="change(option)">
-        {{option.situation}}
-    </label>
-</div>

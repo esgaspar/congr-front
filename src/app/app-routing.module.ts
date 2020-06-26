@@ -7,7 +7,6 @@ import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 
 
 // tslint:disable-next-line: max-line-length
-import { } from "@angular/material";
 import { AuthGuard } from './lib/helpers/auth.guard.service';
 import { LoginComponent } from './lib/components/login/login.component';
 import { RegisterComponent } from './lib/components/register/register.component';

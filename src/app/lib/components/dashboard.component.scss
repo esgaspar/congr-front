@@ -1,2 +1,17 @@
-@import '../vars.scss';
-@import '../default.scss';
+@import "../vars.scss";
+@import "../default.scss";
+
+.notActive {
+  top: 50% !important;
+  left: 50% !important;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0 !important;
+  width: 100%;
+  .user-id {
+    cursor: pointer;
+  }
+}

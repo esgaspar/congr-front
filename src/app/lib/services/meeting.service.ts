@@ -19,7 +19,6 @@ export class MeetingService {
   constructor(private httpClient: HttpClient) { }
 
   async updateMeeting(meeting: any) {
-    console.log('meeting service - meeting: ' + meeting);
     this.meetingBehavior.next(meeting);
   }
 

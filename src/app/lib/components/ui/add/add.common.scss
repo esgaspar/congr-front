@@ -1,0 +1,38 @@
+@import "./../../../palleta.scss";
+
+.add-form {
+  float: left;
+  p {
+    width: max-content;
+    button {
+      width: max-content;
+      text-decoration: none;
+      background-color: inherit;
+      border: 0.05rem solid #444;
+      border-radius: 4px;
+      font-size: 16px;
+      padding: 10px 20px;
+      background-color: rgb(0, 0, 205, 0.5);
+    }
+    button:hover {
+      background-color: rgb(0, 0, 205, 0.7);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .add-form {
+    margin-top: 8rem;
+    width: calc(100%);
+  }
+}
+@media (min-width: 600px) {
+  .add-form {
+    top: 10rem;
+    position: relative;
+    width: calc(45%);
+    button {
+      float: right !important;
+    }
+  }
+}

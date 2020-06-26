@@ -37,17 +37,14 @@ export class AuthenticationService {
   }
 
   public async login(username, password) {
-    console.log('login-service', username);
-
     this.httpClient.post(this.URLbase + 'user/authenticate/', { "username": username, "password": password }, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       })
     }).subscribe(data => {
       if (data[0] && data[0].hasOwnProperty('_id')) {
-        console.log("auth", data)
-        localStorage.setItem('currentUser', JSON.stringify(data));
-        this.currentUserSubject.next(data);
+        localStorage.setItem('currentUser', JSON.stringify(data[0]));
+        this.currentUserSubject.next(data[0]);
 
       } else {
         this.currentUserSubject.next(null);
@@ -55,9 +52,9 @@ export class AuthenticationService {
 
       }
     });
-
-
   }
+
+
 
 
   public logout() {
