@@ -17,6 +17,7 @@ export class SelectComponent implements OnInit {
   @Input() options = [] as any;
   @Input() filterBy: String;
   public optionsFilter: any;
+  public value;
 
 
   @Output() inputModelChange = new EventEmitter<any>();

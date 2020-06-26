@@ -13,7 +13,7 @@ export class MenuHeaderComponent implements OnInit, OnDestroy {
   public isActive: any = false;
   @Output() responseMenu = new EventEmitter();
   
-  private saveStatusIcon: any = false;
+  public saveStatusIcon: any = false;
   
   private currentUserSub;
   private saveStatusSub;

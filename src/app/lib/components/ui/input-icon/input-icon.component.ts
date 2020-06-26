@@ -23,9 +23,9 @@ import { ReplaySubject } from 'rxjs';
 //   multi: true,
 // }
 export class InputIconComponent implements ControlValueAccessor, AfterViewInit {
-  private parseError: boolean;
-  private val: any;
-  private showPass = false;
+  public parseError: boolean;
+  public val: any;
+  public showPass = false;
 
   @Input() ruleType: String;
   @Input() label: String;
